@@ -1,0 +1,22 @@
+<?php
+include_once('db.php');
+$username="";
+$password="";
+$sql='';
+
+$username=$_REQUEST['username'];
+$password = $_REQUEST['password'];
+
+$sql="SELECT * from user1 where username='".$username."' and password='".$password."'";
+$result = mysqli_query($con,$sql);
+if(mysqli_num_rows($result)>0){
+    $row = mysqli_fetch_object($result);    
+    $_SESSION['user_name']=$row->username;  
+    $_SESSION['password']=$row->password;  
+    $_SESSION['user_id']= $row->id;
+    header("location:test.php");
+    die();
+}else{
+    echo "No records found";
+    die();
+}
