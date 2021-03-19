@@ -1,0 +1,12 @@
+include("db.php");
+echo "User ID :"."<br>";
+echo $_SESSION['user_id'];
+echo "User name:"."<br>";
+echo $_SESSION['user_name'];
+echo "Password:"."<br>";
+echo $_SESSION['password'];
+
+
+unset($_SESSION['password']);
+
+//echo $_SESSION['password'];
